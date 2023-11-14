@@ -1,0 +1,53 @@
+# List of products with their quantities
+products = {'apple': 50, 'banana': 100, 'cherry': 50, 'dates': 75, 'elderberry': 25}
+
+# Menu options for the user
+def menu():
+    print("Welcome to the Grocery Store Inventory Management System!")
+    print("1. Display Inventory")
+    print("2. Add to Inventory")
+    print("3. Remove from Inventory")
+    print("4. Search for Product")
+    print("5. Exit")
+
+# Function to display the inventory
+def display_inventory():
+    for product, quantity in products.items():
+        print(f"{product}: {quantity}")
+
+# Function to add to the inventory
+def add_to_inventory():
+    product = input("Enter the product name: ")
+    quantity = int(input("Enter the quantity to add: "))
+
+    if product in products:
+        products[product] += quantity
+        print(f"Added {quantity} {product}(s) to the inventory.")
+    else:
+        products[product] = quantity
+        print(f"Added {product} to the inventory.")
+
+# Function to remove from the inventory
+def remove_from_inventory():
+    product = input("Enter the product name: ")
+    quantity = int(input("Enter the quantity to remove: "))
+
+    if product in products and products[product] >= quantity:
+        products[product] -= quantity
+        print(f"Removed {quantity} {product}(s) from the inventory.")
+    else:
+        print("The product is not in the inventory or there are not enough items to remove.")
+
+# Function to search for a product
+def search_for_product():
+    product = input("Enter the product name: ")
+
+    if product in products:
+        print(f"{product} is in the inventory. The quantity is {products[product]}.")
+    else:
+        print("The product is not in the inventory.")
+
+# Main program loop
+while True:
+    menu()
+    choice = int(input("Enter your choice: ")
